@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Arquitectura Web y Análisis de Requisitos</title>
+
+    <link rel="icon" href="imagenes/icono.png" type="image/png">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #000;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        h1, h2 {
+            color: #222;
+        }
+
+        /* --------- BANNER --------- */
+        .banner {
+            background-color: #000;
+            color: #fff;
+            padding: 35px 40px;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .header img {
+            width: 90px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #fff;
+        }
+
+        .header p {
+            margin-top: 8px;
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        /* --------- MENÚ --------- */
+        .menu-principal {
+            background-color: #111;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .menu-principal a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+
+        .menu-principal a:hover {
+            text-decoration: underline;
+        }
+
+        /* --------- CONTENIDO --------- */
+        main {
+            margin: 40px;
+        }
+
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+        }
+
+        /* --------- BOTONES --------- */
+        .modo-btn,
+        .ver-mas {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .modo-btn {
+            margin-bottom: 30px;
+        }
+
+        .modo-btn:hover,
+        .ver-mas:hover {
+            background-color: #333;
+        }
+
+        .extra {
+            display: none;
+            margin-top: 15px;
+            background-color: #eaeaea;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        /* --------- MODO OSCURO --------- */
+        body.modo-oscuro {
+            background-color: #000;
+            color: #fff;
+        }
+
+        body.modo-oscuro section {
+            background-color: #111;
+        }
+
+        body.modo-oscuro .extra {
+            background-color: #222;
+        }
+
+        body.modo-oscuro h1,
+        body.modo-oscuro h2 {
+            color: #fff;
+        }
+
+        body.modo-oscuro .modo-btn,
+        body.modo-oscuro .ver-mas {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* --------- BANNER EN MODO OSCURO --------- */
+        body.modo-oscuro .banner {
+            background-color: #fff;
+            color: #000;
+        }
+
+        body.modo-oscuro .header h1 {
+            color: #000;
+        }
+
+        body.modo-oscuro .header p {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== BANNER ===== -->
+    <header class="banner">
+        <div class="header">
+            <img src="imagenes/Etapa 1.png" alt="Icono">
+            <div>
+            <h1>Desarrollo Web y Análisis de Requisitos</h1>
+            <p>
+                Arquitectura Cliente/Servidor, Diseño Centrado en el Usuario e
+                Investigación del Entorno para el Análisis de Requisitos
+            </p>
+        </div>
+    </div>
+</header>
+
+ <!-- ================= MENÚ ================= -->
+   <nav class="menu-principal">
+        <a onclick="mostrarSeccion('cliente-servidor')">Cliente/Servidor</a>
+        <a onclick="mostrarSeccion('dcu')">Diseño Centrado en el Usuario</a>
+        <a onclick="mostrarSeccion('investigacion')">Investigación del Entorno</a>
+        <a onclick="mostrarSeccion('referencias')">Referencias</a>
+    </nav>
+     <!-- ===== BOTÓN MODO OSCURO ===== -->
+     <main>
+
+    <button class="modo-btn" onclick="cambiarModo()">
+        Cambiar modo oscuro / claro
+    </button>
+
+   <!-- ================= SECCIÓN 1 ================= -->
+    <section id="cliente-servidor">
+        <h2>Arquitectura Cliente/Servidor en el Desarrollo Web</h2>
+
+        <p>
+            La arquitectura Cliente/Servidor es un modelo fundamental en el desarrollo web moderno.
+            Divide el sistema en dos partes: el cliente, encargado de la interfaz y la interacción
+            con el usuario, y el servidor, responsable del procesamiento de la información.
+        </p>
+
+        <p>
+            En el entorno web, el cliente suele ser un navegador que interpreta HTML, CSS y JavaScript,
+            mientras que el servidor utiliza tecnologías como PHP, Java, Python o Node.js para
+            responder a las solicitudes.
+        </p>
+
+           <button class="ver-mas" onclick="mostrar('extra1')">Ver más</button>
+            <div id="extra1" class="extra">
+            <p>
+                Esta arquitectura permite una mejor organización del sistema, facilitando la
+                escalabilidad, el mantenimiento y la seguridad. Múltiples clientes pueden conectarse
+                simultáneamente a un mismo servidor.
+            </p>
+            <p>
+                Una ventaja importante es la centralización de los datos, lo que reduce la redundancia
+                y mejora la integridad de la información. Sin embargo, una falla del servidor puede
+                afectar a todos los clientes conectados.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= SECCIÓN 2 ================= -->
+  <section id="dcu">
+        <h2>Diseño Centrado en el Usuario</h2>
+
+        <p>
+            El diseño centrado en el usuario es un enfoque que coloca al usuario final como el eje
+            principal del desarrollo de sistemas y aplicaciones web.
+        </p>
+
+        <p>
+            Este enfoque busca crear productos útiles, accesibles y satisfactorios, basándose en el
+            estudio del comportamiento, necesidades y expectativas de los usuarios.
+        </p>
+
+        <button class="ver-mas" onclick="mostrar('extra2')">Ver más</button>
+
+        <div id="extra2" class="extra">
+            <p>
+                Se utilizan técnicas como entrevistas, encuestas, pruebas de usabilidad y análisis de
+                tareas. El diseño se mejora constantemente mediante retroalimentación.
+            </p>
+            <p>
+                Aplicar este enfoque reduce errores, mejora la experiencia del usuario y aumenta la
+                aceptación del sistema.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= SECCIÓN 3 ================= -->
+    <section id="investigacion">
+        <h2>Importancia de la Investigación del Entorno</h2>
+
+        <p>
+            La investigación del entorno es una etapa clave en el análisis de requisitos, ya que
+            permite comprender el contexto real donde se implementará el sistema.
+        </p>
+
+        <p>
+            Ayuda a identificar necesidades reales, restricciones técnicas y problemas existentes,
+            evitando suposiciones incorrectas.
+        </p>
+
+        <button class="ver-mas" onclick="mostrar('extra3')">Ver más</button>
+
+        <div id="extra3" class="extra">
+            <p>
+                Esta investigación puede incluir observación directa, entrevistas, análisis de procesos
+                actuales y revisión de documentación.
+            </p>
+            <p>
+                Una investigación deficiente puede generar requisitos ambiguos, sobrecostos y sistemas
+                que no satisfacen a los usuarios.
+            </p>
+        </div>
+    </section>
+
+  <!-- ================= REFERENCIAS BIBLIOGRÁFICAS ================= -->
+        <section id="referencias">
+            <h2>Referencias bibliográficas</h2>
+            <ul>
+                <li>
+                    Arsys. (2025). <em>Arquitectura cliente-servidor: qué es, tipos y ejemplos</em>.
+                    <a href="https://www.arsys.es/blog/todo-sobre-la-arquitectura-cliente-servidor" target="_blank">
+                        https://www.arsys.es/blog/todo-sobre-la-arquitectura-cliente-servidor
+                    </a>
+                </li>
+                <li>
+                    Daemon4. (2024). <em>Qué es la arquitectura cliente-servidor y cómo funciona</em>.
+                    <a href="https://www.daemon4.com/empresa/noticias/arquitectura-cliente-servidor/" target="_blank">
+                        https://www.daemon4.com/empresa/noticias/arquitectura-cliente-servidor/
+                    </a>
+                </li>
+                <li>
+                    Interaction Design Foundation. (s.f.). <em>What is user-centered design (UCD)?</em>.
+                    <a href="https://www.interaction-design.org/literature/topics/user-centered-design" target="_blank">
+                        https://www.interaction-design.org/literature/topics/user-centered-design
+                    </a>
+                </li>
+                <li>
+                    MDN Web Docs. (s.f.). <em>Visión general cliente-servidor</em>.
+                    <a href="https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview" target="_blank">
+                        https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+      <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        function cambiarModo() {
+            document.body.classList.toggle("modo-oscuro");
+        }
+
+        function mostrar(id) {
+            const elemento = document.getElementById(id);
+            elemento.style.display =
+                elemento.style.display === "block" ? "none" : "block";
+        }
+
+        function mostrarSeccion(id) {
+            const secciones = document.querySelectorAll("main section");
+
+            secciones.forEach(seccion => {
+                seccion.style.display = "none";
+            });
+
+            document.getElementById(id).style.display = "block";
+        }
+
+        // Mostrar Cliente/Servidor al cargar
+        window.onload = function () {
+            mostrarSeccion("cliente-servidor");
+        };
+    </script>
+
+</body>
+</html>
